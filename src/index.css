@@ -132,3 +132,72 @@ nav .logo-container .logo{
     margin: 8px;
     font-size: 17px;
 }
+
+/*---- OnBoarding Page ----*/
+
+.on-boarding form {
+    display: flex;
+    justify-content: center;
+}
+
+.on-boarding form section {
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    width: 35%;
+    text-align: start;
+}
+
+.on-boarding form input {
+    padding: 15px 30px;
+    margin: 10px 0;
+    font-size: 15px;
+    border: solid 2px rgb(219, 219, 219);
+    border-radius: 10px;
+}
+.on-boarding form input::-webkit-outer-spin-button,
+.on-boarding form input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+.on-boarding form label {
+    margin: 10px 0;
+}
+
+.on-boarding form .multiple-input-container {
+    display: flex;
+    flex-direction: row;
+}
+
+.on-boarding form .multiple-input-container input {
+    margin-right: 10px;
+}
+
+.on-boarding form .multiple-input-container label {
+    padding: 10px;
+    border: solid 2px rgb(144, 144, 144);
+    border-radius: 10px;
+    transition: all 0.3s;
+    margin-right: 10px;
+}
+
+.on-boarding form input[type="radio"] {
+    display: none;
+}
+
+.on-boarding form input[type="number"] {
+    width: 10%;
+}
+
+.on-boarding form input[type="radio"]:checked + label {
+    border: solid 2px rgb(221, 39, 22);
+}
+
+.on-boarding form input[type="submit"]:hover {
+    background-color: rgb(235, 25, 235);
+}
+
+.on-boarding form input[type="submit"]:active {
+    background-color: rgb(226, 115, 155);
+}
