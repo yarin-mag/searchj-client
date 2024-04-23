@@ -135,6 +135,10 @@ nav .logo-container .logo{
 
 /*---- OnBoarding Page ----*/
 
+.on-boarding {
+    border-top: solid 1px rgb(154, 154, 154);
+}
+
 .on-boarding form {
     display: flex;
     justify-content: center;
@@ -182,6 +186,7 @@ nav .logo-container .logo{
     margin-right: 10px;
 }
 
+
 .on-boarding form input[type="radio"] {
     display: none;
 }
@@ -201,3 +206,40 @@ nav .logo-container .logo{
 .on-boarding form input[type="submit"]:active {
     background-color: rgb(226, 115, 155);
 }
+
+.on-boarding form .photo-container img {
+    width: 100%;
+}
+
+/* Addition for multiple professions container */
+.on-boarding form .multiple-professions-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 10px;
+  }
+  
+  .on-boarding form .multiple-professions-container input {
+    display: none; /* Hide the checkboxes */
+  }
+  
+  .on-boarding form .multiple-professions-container label {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px;
+    border: solid 2px rgb(144, 144, 144);
+    border-radius: 10px;
+    cursor: pointer;
+    transition: all 0.3s;
+  }
+  
+  .on-boarding form .multiple-professions-container label:hover {
+    background-color: rgba(144, 144, 144, 0.1);
+  }
+  
+  /* Style for checked labels */
+  .on-boarding form .multiple-professions-container input:checked + label {
+    background-color: rgba(0, 123, 255, 0.1);
+    border-color: rgb(0, 123, 255);
+    color: rgb(0, 123, 255);
+  }
