@@ -1,22 +1,9 @@
 import React, { useState } from "react";
 import Nav from "../components/Nav";
 import { useDropzone } from "react-dropzone";
+import { professions } from "./Onboarding";
 
-// TODO -> move to different file and export them
-const professions = {
-  "full-stack-dev": { value: "Full Stack Development", id: "full_stack_id" },
-  "front-end-dev": { value: "Front End Development", id: "front_end_id" },
-  "back-end-dev": { value: "Back End Development", id: "back_end_id" },
-  "ui-ux-designer": { value: "UI/UX Designer", id: "ui_ux_id" },
-  "data-scientist": { value: "Data Scientist", id: "data_scientist_id" },
-  "mobile-app-dev": { value: "Mobile App Developer", id: "mobile_dev_id" },
-  "network-engineer": { value: "Network Engineer", id: "network_engineer_id" },
-  "security-analyst": { value: "Security Analyst", id: "security_analyst_id" },
-  "cloud-architect": { value: "Cloud Architect", id: "cloud_architect_id" },
-  "game-developer": { value: "Game Developer", id: "game_dev_id" },
-};
-
-const OnBoarding = () => {
+export const OnBoarding = () => {
   const [formData, setFormData] = useState({
     user_id: "",
     first_name: "",
@@ -75,15 +62,14 @@ const OnBoarding = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     // TODO -> remove this for loop, only for debug
-    console.log("You just submitted");
-    for (const entry of Object.entries(formData)) {
-      const [key, value] = entry;
-      console.log(`For key ${key} | value is ${value}`);
-    }
-    // TODO -> validate the form by some needed conditions
+    // console.log("You just submitted");
+    // for (const entry of Object.entries(formData)) {
+    //   const [key, value] = entry;
+    //   console.log(`For key ${key} | value is ${value}`);
+    // }
+    // TODO -> validate the form by some needed conditinos
     let validatedForm = true;
     if (validatedForm) {
-      // TODO -> post request to the server
       resetForm();
     }
   };
@@ -99,7 +85,7 @@ const OnBoarding = () => {
       gender_identity: "man",
       profession_interest: [],
       about: "",
-      avatar: null,
+      photo_url: "",
     });
   };
 
@@ -236,28 +222,36 @@ const OnBoarding = () => {
                 padding: "20px",
                 textAlign: "center",
               }}
-              className="photo-container"
             >
               <input {...getInputProps()} />
-              {formData.avatar ? (
-                <img
-                  src={formData.avatar}
-                  alt="Uploaded Avatar"
-                  style={{
-                    width: "300px",
-                    height: "300px",
-                    objectFit: "cover",
-                  }}
-                />
-              ) : (
-                <p>Drag 'n' drop an image here, or click to select one</p>
-              )}
+              {!formData.avatar &&
+                ((<p>Drag & drop an image here, or click to select one</p>),
+                (
+                  <div>
+                    {formData.photo_url !== "" && (
+                      <img
+                        src={formData.photo_url}
+                        alt="profile picture is missing"
+                      />
+                    )}
+                  </div>
+                ))}
+              {/* TODO -> make an option to upload the photo */}
+              {/* <label htmlFor="avatar">Profile Photo</label>
+            <input
+              type="url"
+              name="avatar"
+              id="avatar"
+              onChange={handleChange}
+              value={formData.avatar}
+              required={true}
+              /> */}
             </div>
+
+            {/* TODO -> make photo preview after uploading */}
           </section>
         </form>
       </div>
     </>
   );
 };
-
-export default OnBoarding;
